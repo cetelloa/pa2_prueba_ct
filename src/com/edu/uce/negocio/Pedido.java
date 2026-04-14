@@ -6,10 +6,13 @@ public class Pedido {
     private String producto;
     private double total;
     private String correo;
+    private int numero;
 
     public Pedido() {
         
     }
+
+    
 
     public String getCliente() {
         return cliente;
@@ -43,11 +46,24 @@ public class Pedido {
         this.correo = correo;
     }
 
-    public Pedido(String cliente, String producto, double total, String correo) {
+    public Pedido(String cliente, String producto, double total, String correo, int numero) {
         this.cliente = cliente;
         this.producto = producto;
         this.total = total;
         this.correo = correo;
+        this.numero = numero;
+    }
+
+
+
+    public int getNumero() {
+        return numero;
+    }
+
+
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
 
