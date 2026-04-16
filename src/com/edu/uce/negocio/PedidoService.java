@@ -9,15 +9,18 @@ public class PedidoService {
         System.out.println("Total: " + pedido.getTotal());
         System.out.println("Guardando en la base de datos");
         
-        if (pedido.getTotal() > 100) {
+        if (pedido.getTotal() > 120) {
             NotificadorMail nl = new NotificadorMail();
             nl.enviar(pedido.getCorreo(), "El producto ha sido comprado");
 
-        } else {
+        } else if (pedido.getTotal()>50){
 
+            NotificadorWhastapp wha = new NotificadorWhastapp();
+            wha.enviar(pedido.getNumero(), "El producto ha sido comprado");
+
+        }else{
             SMS sms = new SMS();
             sms.enviar(pedido.getNumero(), "El producto ha sido comprado");
-
         }
 
     }
